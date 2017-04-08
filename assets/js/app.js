@@ -57,7 +57,7 @@ $(document).ready(function() {
 				.append($("<div>")
 					.addClass("beer-name")
 					.text(response[i].name))
-				.append(("<div>")
+				.append($("<div>")
 					.addClass("beer-description")
 					.text(response[i].description));
 		}
