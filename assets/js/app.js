@@ -11,6 +11,7 @@ $(document).ready(function() {
 	var $sBeer = $("#search-beer");
 	var $sByBrewery = $("#form-brewery");
 	var $sBrewery = $("#search-brewery");
+	var $results = $("#locations").children("ul");
 
 	function brewerySearch()
 	{
@@ -27,7 +28,7 @@ $(document).ready(function() {
 
 		for(var i = 0; i < response.length; i++)
 		{
-			var brewDiv = $("<div>")
+			var brewLi = $("<li>")
 			.data(response[i])
 			.addClass("row-brewery")
 			.append($("<div>")
@@ -62,7 +63,7 @@ $(document).ready(function() {
 
 		for(var i = 0; i < response.length; i++)
 		{
-			var brewDiv = $("<div>")
+			var beerLi = $("<li>")
 			.data(response[i])
 			.addClass("row beer")
 			.append($("<div>")
@@ -121,7 +122,7 @@ $(document).ready(function() {
 
 		for(var i = 0; i < response.length; i++)
 		{
-			var brewDiv = $("<div>")
+			var brewLi = $("<li>")
 			.data(response[i])
 			.addClass("row-brewery")
 			.append($("<div>")
@@ -138,6 +139,9 @@ $(document).ready(function() {
 					.addClass("brewery-desc")
 					.text(response[i].brewery.description))
 				);
+
+			$results.empty();
+			brewLi.appendTo($results);
 		}
 	}
 
@@ -155,7 +159,7 @@ $(document).ready(function() {
 
 		for(var i = 0; i < response.length; i++)
 		{
-			var beerDiv = $("<div>")
+			var beerLi = $("<li>")
 			.data(response[i])
 			.addClass("beer")
 			.append($("<h5>")
@@ -171,5 +175,4 @@ $(document).ready(function() {
 	//TODO: finish search results displays
 	//TODO: pass .data() of beer name to rating submission form.
 	//TODO: add brewery links on their names.
-
 });
