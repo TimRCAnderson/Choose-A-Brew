@@ -15,15 +15,25 @@
   <script>
   // Initialize Firebase
   var config = {
+    apiKey: "AIzaSyD4sZYPlRkO-VCK34XnypO7ae0TCYE1SZ0",
+    authDomain: "userratings-c052c.firebaseapp.com",
+    databaseURL: "https://userratings-c052c.firebaseio.com",
+    projectId: "userratings-c052c",
+    storageBucket: "userratings-c052c.appspot.com",
+    messagingSenderId: "34768504851"
   };
   firebase.initializeApp(config);
-</script>
 
-<script src="assets/js/openLink.js"></script>
 
-<link rel="stylesheet" href="assets/css/style.css"/>
+  var database = firebase.database();</script>
 
-<title>Choose-A-Brew</title>
+  <!-- <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyAX9fOVOi9M_m3NSS7etyIr1Oe2dlt_Edk&ver=3.exp"></script> -->
+
+  <script src="assets/js/openLink.js"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <title>Choose-A-Brew</title>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
@@ -53,8 +63,8 @@
         <div class="w3-display-middle" style="width:65%">
           <div class="w3-bar w3-black">
             <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'location-search');"><i class="fa fa-plane w3-margin-right"></i>Location</button>
-            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'brewery');"><i class="fa fa-bed w3-margin-right"></i>Brewery</button>
-            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'beer');"><i class="fa fa-car w3-margin-right"></i>Beers</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'brewery-search');"><i class="fa fa-bed w3-margin-right"></i>Brewery</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'beer-search');"><i class="fa fa-car w3-margin-right"></i>Beer</button>
           </div>
 
           <!-- Search Box Tabs -->
@@ -76,20 +86,25 @@
                 </div>
               </div>
               <p><button id="search-button" class="w3-button w3-dark-grey">Search</button></p>
-            </div>
-          </form>
-          <div id="brewery" class="w3-container w3-white w3-padding-16 myLink hidden">
-            <h3>Find the best hotels</h3>
-            <p>Book a hotel with us and get the best fares and promotions.</p>
-            <p>We know hotels - we know comfort.</p>
-            <p><button class="w3-button w3-dark-grey">Search Hotels</button></p>
+            </form>
+          </div>
+          
+          <div id="brewery-search" class="w3-container w3-white w3-padding-16 myLink hidden">
+            <form id="form-brewery">
+              <h3>Find a Brewery by Name</h3>
+              <div>
+                <input id="search-brewery" class="w3-input w3-border" type="text" placeholder="Brewery Name">
+              </div>
+              <p><button class="w3-button w3-dark-grey">Search</button></p>
+            </form>
           </div>
 
-          <div id="beer" class="w3-container w3-white w3-padding-16 myLink hidden">
-            <h3>Best car rental in the world!</h3>
-            <p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>
-            <input class="w3-input w3-border" type="text" placeholder="Pick-up point">
-            <p><button class="w3-button w3-dark-grey">Search Availability</button></p>
+          <div id="beer-search" class="w3-container w3-white w3-padding-16 myLink hidden">
+            <form id="form-beer">
+              <h3>Find a Beer by Name</h3>
+              <input id="search-beer" class="w3-input w3-border" type="text" placeholder="Beer Name">
+              <p><button class="w3-button w3-dark-grey">Search</button></p>
+            </form>
           </div>
         </div>
       </header>
@@ -102,35 +117,33 @@
 <div id="search-results">
   <h3>Search Results</h3>
   <div class="container">
-   <div id="the-map">
-    <div id="map"></div>
-    <div id="locations">
-      <div class="clearfix"></div>
-      <ul class="results">
-        <!-- Brewery scroll list results here -->
-      </ul>
+    <div id="the-map">
+      <div id="map"></div>
+      <div id="locations">
+        <div class="clearfix"></div>
+        <div class="results">
+          <!-- Brewery scroll list results here -->
+        </div>
+      </div>
     </div>
   </div>
+  <a href="#home" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up">Top</span>
+  </a>
 </div>
-<a href="#home" title="To Top">
-  <span class="glyphicon glyphicon-chevron-up">Top</span>
-</a>
-</div>
-
 
 <!-- Chosen Brewery Area -->
 <div class="bgimg-2">
   <div class="caption">
-    <span class="border">Choosen Brewery's Beers</span>
+    <span class="border">Chosen Brewery's Beers
+      <ul id="beer-list"></ul>
+    </span>
   </div>
 </div>
-
+</div>
 
 <!-- Brewery Beer list-->
-
 <div id="beer-list" class="form-position">
-
-
   <div>
     <p>Brewery beer list.</p>
     <a href="#home" title="To Top">
@@ -161,9 +174,9 @@
 <div class="bgimg-4">
   <div class="caption">
     <span class="border">Rate the beer!</span>
-
   </div>
 </div>
+
 
 <!-- User rating form for chosen beer -->
 <div class="form-position">
@@ -181,7 +194,7 @@
   </a>
 
 </footer>
-
+<script src="assets/js/userRating.js"></script>
 <script src="assets/js/app.js"></script>
 </body>
 </html>
