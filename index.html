@@ -9,6 +9,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
   <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
   <script>
   // Initialize Firebase
@@ -21,7 +23,7 @@
 
 <title>Choose-A-Brew</title>
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 
   <!-- Navagation Bar at Top of Page -->
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -32,9 +34,9 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#home">SEARCH</a></li>
-          <li><a href="#ratings">BEER RATINGS</a></li>
-          <li><a href="#stars">RATE A BEER</a></li>
-          <li><a href="#google">MAP</a></li>
+          <li><a href="#beer-list">BEER LIST</a></li>
+          <li><a href="#beer-ratings">BEER RATINGS</a></li>
+          <li><a href="#beer-thumbs">RATE A BEER</a></li>
         </ul>
       </div>
     </div>
@@ -43,80 +45,146 @@
   <!-- First image and Search area -->
   <div id="home" class="bgimg-1">
     <div id="search" class="caption">
-    <div id="searchcontrol" class="panel panel-warning">
-        <div class="panel-heading">
+      <!-- <div id="searchcontrol" class="panel panel-warning"> -->
+
+
+
+
+      <!-- New Search Box (work in progress) Header -->
+      <header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
+        <div class="w3-display-middle" style="width:65%">
+          <div class="w3-bar w3-black">
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Flight');"><i class="fa fa-plane w3-margin-right"></i>Flight</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Hotel');"><i class="fa fa-bed w3-margin-right"></i>Hotel</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Car');"><i class="fa fa-car w3-margin-right"></i>Rental</button>
+          </div>
+
+          <!-- Search Box Tabs -->
+          <div id="Flight" class="w3-container w3-white w3-padding-16 myLink">
+            <h3>Travel the world with us</h3>
+            <div class="w3-row-padding" style="margin:0 -16px;">
+              <div class="w3-half">
+                <label>From</label>
+                <input class="w3-input w3-border" type="text" placeholder="Departing from">
+              </div>
+              <div class="w3-half">
+                <label>To</label>
+                <input class="w3-input w3-border" type="text" placeholder="Arriving at">
+              </div>
+            </div>
+            <p><button class="w3-button w3-dark-grey">Search and find dates</button></p>
+          </div>
+
+          <div id="Hotel" class="w3-container w3-white w3-padding-16 myLink hidden">
+            <h3>Find the best hotels</h3>
+            <p>Book a hotel with us and get the best fares and promotions.</p>
+            <p>We know hotels - we know comfort.</p>
+            <p><button class="w3-button w3-dark-grey">Search Hotels</button></p>
+          </div>
+
+          <div id="Car" class="w3-container w3-white w3-padding-16 myLink hidden">
+            <h3>Best car rental in the world!</h3>
+            <p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>
+            <input class="w3-input w3-border" type="text" placeholder="Pick-up point">
+            <p><button class="w3-button w3-dark-grey">Search Availability</button></p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Old Search box -->
+       <!--  <div class="panel-heading">
           <h3 class="panel-title">Brew Search</h3>
         </div>
         <div class="input-prepend">
           <label for="location_address" class="prepend text-light-gray">Near</label>
-          <input value="" placeholder="Address, City, State or Zip" class="address" type="text" name="location[address]" id="location_address" />
+          <input value="" placeholder="City, State or Zip" class="address" type="text" name="location[address]" id="location_address" />
           <input type="submit" name="commit" value="Update" data-disable-with="Updating..." class="pure-button geocode" />
+          <!- https://www.beermenus.com/large_map -->
+          <!--  </div> -->
+          <!-- </div> --> 
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- Results Area for Search -->
-<div id="searchTalk">
-  <h3>Search Results</h3>
-  <p>Now a true German-style Hefeweizen is a big contrast in flavor when compared to its Americanized brethren. For instance, American Wheat beers more commonly use a neutral American yeast strain, which will emphasize the malt character a little more and have a much cleaner flavor. Some of the other differences between the two are the use of hops and malt. German Hefeweizens are barely touched with hops as not to bring harshness to the delicate balance of esters and phenols (fruity fusel alcohol and a medicinal by-product), and the fermented wheat flavor. Some American brewers deem it necessary to make a mark and hop the Wheat beer like any other ale they brew, not too bitter but certainly noticeable. As for the malt, usually American Wheat beers will mash with American malts, though they have been known to throw in some tradition, especially when trying to brew the real thing, and use German malts. Obviously, German Hefeweizens use German malts and generally the percentage of wheat is higher versus American Wheat beers.</p>
-
-  <a href="#home" title="To Top">
-    <span class="glyphicon glyphicon-chevron-up">Top</span>
-  </a>
-</div>
-
-<div class="bgimg-2">
-  <div id="ratings" class="caption">
-    <span class="border">Brewerys</span>
-  </div>
-</div>
-
-<div class="formPosition">
-  <div>
-    <p>Talbe and graphs on beer ratings.</p>
+    <!-- Search Results Area/ Map and brewery scroll-->
+    <div id="search-results">
+      <h3>Search Results</h3>
+      <div class="container">
+       <div id="the-map">
+        <div id="map"></div>
+        <div id="locations">
+          <div class="clearfix"></div>
+          <ul class="results">
+            <!-- Brewery scroll list results here -->
+          </ul>
+        </div>
+      </div>
+    </div>
     <a href="#home" title="To Top">
       <span class="glyphicon glyphicon-chevron-up">Top</span>
     </a>
   </div>
-</div>
 
-<div class="bgimg-3">
-  <div id="stars" class="caption">
-    <span class="border">Beers</span>
+
+  <!-- Chosen Brewery Area -->
+  <div class="bgimg-2">
+    <div class="caption">
+      <span class="border">Choosen Brewery's Beers</span>
+    </div>
   </div>
-</div>
 
-<div class="formPosition">
-  <div>
-    <p>Area to put in user ratings entry.</p>
+
+  <!-- Brewery Beer list-->
+  <div id="beer-list"class="form-position">
+    <div>
+      <p>Brewery beer list.</p>
+      <a href="#home" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up">Top</span>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- Chosen Beer Ratings Area -->
+  <div class="bgimg-3">
+    <div class="caption">
+      <span class="border">Beer Ratings</span>
+    </div>
+  </div>
+
+<!-- Chosen Beer Previous Ratings Table  -->
+  <div id="beer-ratings" class="form-position">
+    <div>
+      <p>Beer ratings table.</p>
+      <a href="#home" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up">Top</span>
+      </a>
+    </div>
+  </div>
+
+<!-- User to Rate choosen Beer Area -->
+  <div class="bgimg-4">
+    <div class="caption">
+      <span class="border">Rate the beer!</span>
+    </div>
+  </div>
+
+<!-- User rating form for chosen beer -->
+  <div class="form-position">
+    <div id="beer-thumbs">
+      <p>Rate the beer</p>
+    </div>
+  </div>
+
+<!-- footer area -->
+  <footer>
+    <p>Class Project 1</p>
     <a href="#home" title="To Top">
       <span class="glyphicon glyphicon-chevron-up">Top</span>
     </a>
-  </div>
-</div>
 
-<div class="bgimg-4">
-  <div id="google" class="caption">
-    <span class="border">Google Maps Here</span>
-  </div>
-</div>
+  </footer>
 
-<div class="formPosition">
-  <div id="map">
-    <p>Google Maps</p>
-  </div>
-</div>
-
-<footer>
-  <p>Class Project 1</p>
-  <a href="#home" title="To Top">
-    <span class="glyphicon glyphicon-chevron-up">Top</span>
-  </a>
-
-</footer>
-
-<script src="assets/js/app.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
