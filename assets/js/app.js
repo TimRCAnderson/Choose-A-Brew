@@ -13,6 +13,11 @@ $(document).ready(function() {
 	var $sBrewery = $("#search-brewery");
 	var $results = $("#locations").children("ul");
 
+	$ByLoc.click(function(event) {
+		event.preventDefault();
+		locationSearch();
+	})
+
 	function brewerySearch()
 	{
 		var response;
