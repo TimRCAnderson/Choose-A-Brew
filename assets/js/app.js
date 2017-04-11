@@ -172,7 +172,10 @@ $(document).ready(function() {
 				.text(response[i].name))
 			.append($("<p>")
 				.addClass("beer-description")
-				.text(response[i].description));
+				.text(response[i].description))
+			.append($("<div>")
+				.addClass("rating-container")
+				.append($.fn.rating()));
 		}
 	}
 
