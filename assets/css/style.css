@@ -67,7 +67,11 @@ text-align: center;
 
 }
 .bgimg-1 {
+<<<<<<< HEAD
   background-image: url("../images/brick.jpg");
+=======
+  background-image: url("../images/beer.jpg");
+>>>>>>> master
   min-height: 600px;
 }
 
@@ -82,7 +86,11 @@ text-align: center;
 }
 
 .bgimg-4 {
+<<<<<<< HEAD
   background-image: url("../images/beer.jpg");
+=======
+  background-image: url("../images/brick.jpg");
+>>>>>>> master
   min-height: 700px;
 }
 
