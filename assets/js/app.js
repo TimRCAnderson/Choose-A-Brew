@@ -158,7 +158,7 @@ $(document).ready(function() {
 						.append($("<img>")
 							.attr("src", checkImages(response[i]))
 							.attr("alt", "Brewery Logo")
-							.addClass("img-thumbnail brewery-img"))
+							.addClass("img-thumbnail brewery-img" + noImageHidden(response[i])))
 						.append($("<h4>")
 							.addClass("brewery-name")
 							.text(response[i].brewery.name))
@@ -216,6 +216,18 @@ $(document).ready(function() {
 		else
 		{
 			return anObject.brewery.images.icon;
+		}
+	}
+
+	function noImageHidden(anObject)
+	{
+		if(anObject.brewery.images === undefined)
+		{
+			return " hidden";
+		}
+		else
+		{
+			return "";
 		}
 	}
 
