@@ -117,12 +117,12 @@
 <!-- Search Results Area/ Map and brewery scroll-->
 <div id="search-results" class="form-position">
   <p>Search Results</p>
-  <div class="w3-cell-row" >
+  <div class="w3-cell-row">
     <div class="w3-container w3-cell hidden" style="width:33%">
-      <ul id="scroll-list">
-        <li>item 1</li>
-        <li>item 2</li>
-      </ul>
+      <!-- We can't use a ul tag here because all of the li elements are preceded by a bullet, and we don't want that.  -->
+      <div id="results-list" class="scroll-list">
+
+      </div>
     </div>
     <div class="w3-container w3-cell hidden" style="width:66%">
       <div id="the-map" style="width:700px;height:700px;background:grey">
@@ -204,7 +204,9 @@
     <span class="glyphicon glyphicon-chevron-up">Top</span>
   </a>
 </footer>
-
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX9fOVOi9M_m3NSS7etyIr1Oe2dlt_Edk">
+</script>
+<script src="assets/js/mapFunc.js"></script>
 <script src="assets/js/userRating.js"></script>
 <script src="assets/js/app.js"></script>
 </body>

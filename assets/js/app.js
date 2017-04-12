@@ -11,7 +11,7 @@ $(document).ready(function() {
 	var $sBeer = $("#search-beer");
 	var $sByBrewery = $("#form-brewery");
 	var $sBrewery = $("#search-brewery");
-	var $results = $("#locations").children(".results");
+	var $results = $("#results-list");
 
 	$sByLoc.submit(function(event) {
 		event.preventDefault();
@@ -51,8 +51,9 @@ $(document).ready(function() {
 					.append($("<div>")
 						.addClass("brewery")
 						.append($("<img>")
-							.attr("src", response[i].brewery.images.icon)
-							.addClass("img-thumbnail brewery-img"))
+							.attr("src", checkImages(response[i]))
+							.attr("alt", "Brewery Logo")
+							.addClass("img-thumbnail brewery-img" + noImageHidden(response[i])))
 						.append($("<h4>")
 							.addClass("brewery-name")
 							.text(response[i].brewery.name)))
@@ -145,37 +146,43 @@ $(document).ready(function() {
 			console.log(r);
 			console.log(response);
 			$results.empty();
-			for(var i = 0; i < response.length; i++)
-			{
-				console.log(i);
-				var brewdiv = $("<div>")
-				.data(response[i])
-				.addClass("row row-brewery")
-				.append($("<div>")
-					.addClass("col-sm-12")
-					.append($("<div>")
-						.addClass("brewery")
-						.append($("<img>")
-							.attr("src", checkImages(response[i]))
-							.attr("alt", "Brewery Logo")
-							.addClass("img-thumbnail brewery-img"))
-						.append($("<h4>")
-							.addClass("brewery-name")
-							.text(response[i].brewery.name))
-						.append($("<a>")
-							.addClass("brewery-website")
-							.attr("href", response[i].brewery.website)
-							.attr("target", "_blank")
-							.append($("<button>")
-								.text("Website")
-								.addClass("w3-button w3-dark-grey"))))
-					.append($("<p>")
-						.addClass("brewery-desc")
-						.text(response[i].brewery.description))
-					);
-				brewdiv.appendTo($results);
-			}
-		});
+			if(response != undefined)
+				{initMap();
+					for(var i = 0; i < response.length; i++)
+					{
+						console.log(i);
+						var brewdiv = $("<div>")
+						.data(response[i])
+						.addClass("row row-brewery")
+						.append($("<div>")
+							.addClass("col-sm-12")
+							.append($("<div>")
+								.addClass("brewery")
+								.append($("<img>")
+									.attr("src", checkImages(response[i]))
+									.attr("alt", "Brewery Logo")
+									.addClass("img-thumbnail brewery-img" + noImageHidden(response[i])))
+								.append($("<h4>")
+									.addClass("brewery-name")
+									.text(response[i].brewery.name))
+								.append($("<a>")
+									.addClass("brewery-website")
+									.attr("href", response[i].brewery.website)
+									.attr("target", "_blank")
+									.append($("<button>")
+										.text("Website")
+										.addClass("w3-button w3-dark-grey"))))
+							.append($("<p>")
+								.addClass("brewery-desc")
+								.text(response[i].brewery.description))
+							);
+						addMarker(response[i]);
+						map.fitBounds(bounds);
+						brewdiv.appendTo($results);
+						$results.parent().removeClass("hidden");
+					}
+				}
+			});
 	}
 
 	function getBeers()
@@ -216,6 +223,18 @@ $(document).ready(function() {
 		else
 		{
 			return anObject.brewery.images.icon;
+		}
+	}
+
+	function noImageHidden(anObject)
+	{
+		if(anObject.brewery.images === undefined)
+		{
+			return " hidden";
+		}
+		else
+		{
+			return "";
 		}
 	}
 
