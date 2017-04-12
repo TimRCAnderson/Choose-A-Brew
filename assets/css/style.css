@@ -6,103 +6,21 @@ body, html {
   position: relative;
 }
 
+h3 {
+  text-align: center;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
+
 #search-button {
   margin-top: 10px;
-  padding: 10px;
+  border-radius: 5px;
 }
 
-#search-results {
-  color: #777;
-  text-align: justify;
-}
-.container {
-  margin: 30px 30px 30px 0;
-  height: 600px;
-  width: 100%;
-  background-image:url(../images/map.png);
-}
-
-#beer-list, #beer-ratings, #beer-thumbs {
-  background-color:transparent;
-  font-size:25px;
-  color: #f7f7f7;
-}
-
-#location_address {
-  width: 250px;
-}
-
-.input-prepend {
-padding: 15px;
-text-align: center;
-}
-
-.glyphicon {
-  font-size: 20px;
-  margin-bottom: 20px;
-  color: #f4511e;
-}
-
-.form-position {
- position:relative;
-}
-
-.form-position div {
-  color:#ddd;
-  background-color:#282E34;
-  text-align:center;
-  padding:50px 80px;
-  text-align: justify;
-}
-
-.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
-  position: relative;
-  opacity: 0.65;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-}
-.bgimg-1 {
-
-  background-image: url("../images/brick.jpg");
-
-  min-height: 600px;
-}
-
-.bgimg-2 {
-  background-image: url("../images/taps.jpg");
-  min-height: 600px;
-}
-
-.bgimg-3 {
-  background-image: url("../images/craftbeer.jpg");
-  min-height: 500px;
-}
-
-.bgimg-4 {
-
-  background-image: url("../images/beer.jpg");
-
-  min-height: 700px;
-}
-
-.caption {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 100%;
-  text-align: center;
-  color: #000;
-}
-
-.caption span.border {
-  background-color: #111;
-  color: #fff;
-  padding: 18px;
-  font-size: 25px;
-  letter-spacing: 10px;
+#search-box {
+  height: 200px;
 }
 
 .navbar {
@@ -128,12 +46,85 @@ text-align: center;
   border-color: transparent;
 }
 
-h3 {
+#scroll-list {
+ height:200px;  
+ overflow:hidden; 
+ overflow-y:scroll;
+}
+
+#search-results, #beer-list, #beer-ratings, #beer-thumbs{
+  background-color: #282E34;
+  font-size:25px;
+  color: #f7f7f7;
+}
+
+#beer-thumbs {
+  width: 600px;
+  margin: auto;
+}
+
+#search-brewery, #search-beer {
+  margin-left: 180px;
+}
+
+#location-search, #brewery-search, #beer-search {
+  background-image: url("../images/head.jpg");
+}
+
+.form-position {
+  color:#ddd;
+  background-color:#282E34;
+  text-align:center;
+  opacity: 0.9;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-image: url("../images/brick.jpg");
+  min-height: 600px;
+}
+.bgimg-2 {
+  background-image: url("../images/taps.jpg");
+  min-height: 600px;
+}
+.bgimg-3 {
+  background-image: url("../images/craftbeer.jpg");
+  min-height: 500px;
+}
+.bgimg-4 {
+  background-image: url("../images/beer.jpg");
+  min-height: 600px;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
   text-align: center;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  font: 20px "Lato", sans-serif;
-  color: #111;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+.glyphicon {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #f4511e;
 }
 
 footer {

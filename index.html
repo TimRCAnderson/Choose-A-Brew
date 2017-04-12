@@ -35,6 +35,7 @@
 
   <title>Choose-A-Brew</title>
 </head>
+
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
   <!-- Navagation Bar at Top of Page -->
@@ -54,34 +55,31 @@
     </div>
   </nav>
 
-  <!-- First image and Search area -->
+  <!-- Brick Image and Caption-->
   <div id="home" class="bgimg-1">
-    <div id="search" class="caption">
+    <div class="caption">
 
-      <!-- New Search Box (work in progress) Header -->
-      <header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
-        <div class="w3-display-middle" style="width:65%">
+      <!-- Search Box Header -->
+      <header class="w3-display-container w3-content w3-hide-small" style="max-width:900px">
+        <div id="search-box" class="w3-display-middle" style="width:65%">
           <div class="w3-bar w3-black">
-            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'location-search');"><i class="fa fa-plane w3-margin-right"></i>Location</button>
-            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'brewery-search');"><i class="fa fa-bed w3-margin-right"></i>Brewery</button>
-            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'beer-search');"><i class="fa fa-car w3-margin-right"></i>Beer</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'location-search');">Location</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'brewery-search');">Brewery</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'beer-search');">Beer</button>
           </div>
 
-          <!-- Search Box Tabs -->
+          <!-- Location Search Tab -->
           <div id="location-search" class="w3-container w3-white w3-padding-16 myLink shown">
             <form id="form-location">
               <h3>Find a Nearby Brewery</h3>
               <div class="w3-row-padding" style="margin:0 -16px;">
                 <div  class="w3-third">
-                  <!-- <label>City</label> -->
                   <input id="search-city" class="w3-input w3-border" type="text" placeholder="City">
                 </div>
                 <div  class="w3-third">
-                  <!-- <label>State</label> -->
                   <input id="search-state" class="w3-input w3-border" type="text" placeholder="State">
                 </div>
                 <div  class="w3-third">
-                  <!-- <label>Zip Code</label> -->
                   <input id="search-zip" class="w3-input w3-border" type="text" placeholder="Zip Code">
                 </div>
               </div>
@@ -89,41 +87,49 @@
             </form>
           </div>
           
+          <!-- Brewery Search Tab -->
           <div id="brewery-search" class="w3-container w3-white w3-padding-16 myLink hidden">
             <form id="form-brewery">
               <h3>Find a Brewery by Name</h3>
-              <div>
-                <input id="search-brewery" class="w3-input w3-border" type="text" placeholder="Brewery Name">
+              <div class="w3-row-padding" style="margin:0 -16px;">
+                <div  class="w3-third">
+                  <input id="search-brewery" class="w3-input w3-border" type="text" placeholder="Brewery Name">
+                </div>
               </div>
-              <p><button class="w3-button w3-dark-grey">Search</button></p>
+              <p><button id="search-button"  class="w3-button w3-dark-grey">Search</button></p>
             </form>
           </div>
 
+          <!-- Beer Search Tab -->
           <div id="beer-search" class="w3-container w3-white w3-padding-16 myLink hidden">
             <form id="form-beer">
               <h3>Find a Beer by Name</h3>
-              <input id="search-beer" class="w3-input w3-border" type="text" placeholder="Beer Name">
-              <p><button class="w3-button w3-dark-grey">Search</button></p>
+              <div class="w3-row-padding" style="margin:0 -16px;">
+                <div  class="w3-third">
+                  <input id="search-beer" class="w3-input w3-border" type="text" placeholder="Beer Name">
+                </div>
+              </div>
+              <p><button id="search-button" class="w3-button w3-dark-grey">Search</button></p>
             </form>
           </div>
         </div>
       </header>
-
     </div>
   </div>
 </div>
 
 <!-- Search Results Area/ Map and brewery scroll-->
-<div id="search-results">
-  <h3>Search Results</h3>
-  <div class="container">
-    <div id="the-map">
-      <div id="map"></div>
-      <div id="locations">
-        <div class="clearfix"></div>
-        <div class="results">
-          <!-- Brewery scroll list results here -->
-        </div>
+<div id="search-results" class="form-position">
+  <p>Search Results</p>
+  <div class="w3-cell-row" >
+    <div class="w3-container w3-cell hidden" style="width:33%">
+      <ul id="scroll-list">
+        <li>item 1</li>
+        <li>item 2</li>
+      </ul>
+    </div>
+    <div class="w3-container w3-cell hidden" style="width:66%">
+      <div id="the-map" style="width:700px;height:700px;background:grey">
       </div>
     </div>
   </div>
@@ -132,28 +138,30 @@
   </a>
 </div>
 
-<!-- Chosen Brewery Area -->
+
+<!-- Taps Image and Caption-->
 <div class="bgimg-2">
   <div class="caption">
-    <span class="border">Chosen Brewery's Beers
-      <ul id="beer-list"></ul>
-    </span>
+    <span class="border">Chosen Brewery's Beer</span>
   </div>
 </div>
-</div>
+
 
 <!-- Brewery Beer list-->
 <div id="beer-list" class="form-position">
-  <div>
-    <p>Brewery beer list.</p>
-    <a href="#home" title="To Top">
-      <span class="glyphicon glyphicon-chevron-up">Top</span>
-    </a>
-  </div>
+  <div id="beer-list">
+   <ul>
+     <!-- Beer List goes here -->
+   </ul>
+   <p>Brewery beer list goes here</p>
+ </div>
+ <a href="#home" title="To Top">
+  <span class="glyphicon glyphicon-chevron-up">Top</span>
+</a>
 </div>
 
 
-<!-- Chosen Beer Ratings Area -->
+<!-- Craftbeer Image and Caption -->
 <div class="bgimg-3">
   <div class="caption">
     <span class="border">Beer Ratings</span>
@@ -162,7 +170,10 @@
 
 <!-- Chosen Beer Previous Ratings Table  -->
 <div id="beer-ratings" class="form-position">
-  <div>
+  <div class="table-responsive">
+    <table class="table">
+      <!-- Beer Ratings Table goes Here -->
+    </table>
     <p>Beer ratings table.</p>
     <a href="#home" title="To Top">
       <span class="glyphicon glyphicon-chevron-up">Top</span>
@@ -170,7 +181,7 @@
   </div>
 </div>
 
-<!-- User to Rate choosen Beer Area -->
+<!-- Beer Image and Caption -->
 <div class="bgimg-4">
   <div class="caption">
     <span class="border">Rate the beer!</span>
@@ -180,20 +191,29 @@
 
 <!-- User rating form for chosen beer -->
 <div class="form-position">
-  <div id="beer-thumbs">
-    <p>Rate the beer</p>
-  </div>
+  <form id="beer-thumbs" >
+    <div class="form-group hidden">
+      <label for="info1">info1:</label>
+      <input type="info1" class="form-control" id="info1" placeholder="Enter info1">
+    </div>
+    <div class="form-group hidden">
+      <label for="info2">info2:</label>
+      <input type="info2" class="form-control" id="info2" placeholder="Enter info2">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+  <p>Rate the beer/ Beer rating form goes in here.</p>
 </div>
 
 
 <!-- footer area -->
 <footer>
-  <p>Class Project 1</p>
+  <p>Brew Crew Class Project 1</p>
   <a href="#home" title="To Top">
     <span class="glyphicon glyphicon-chevron-up">Top</span>
   </a>
-
 </footer>
+
 <script src="assets/js/userRating.js"></script>
 <script src="assets/js/app.js"></script>
 </body>
