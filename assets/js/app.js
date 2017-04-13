@@ -117,6 +117,7 @@ $(document).ready(function() {
 		var searchType = "locations";
 		var city = $sCity.val().trim();
 		var state = $sState.val().trim();
+		// var postal = $sZip.val().trim();
 
 		if(city != "")
 		{
@@ -135,6 +136,15 @@ $(document).ready(function() {
 		{
 			state = "";
 		}
+    
+		// if(postal != "")
+		// {
+		// 	postal = "&postalCode=" + postal;
+		// }
+		// else
+		// {
+		// 	postal = "";
+		// }
 
 		queryURL = brewDBURL + searchType + "?" + brewDBKey + city + state;
 		$.ajax({
