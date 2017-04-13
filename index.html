@@ -59,7 +59,7 @@
       <header class="w3-display-container w3-content w3-hide-small" style="max-width:900px">
         <div id="search-box" class="w3-display-middle" style="width:65%">
           <div class="w3-bar w3-black">
-            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'location-search');">Location</button>
+            <button class="w3-bar-item w3-button tablink w3-orange" onclick="openLink(event, 'location-search');">Location</button>
             <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'brewery-search');">Brewery</button>
             <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'beer-search');">Beer</button>
           </div>
@@ -143,11 +143,10 @@
 
 <!-- Brewery Beer list-->
 <div id="beer-list" class="form-position">
-  <div >
-   <ul>
-     <!-- Beer List goes here -->
-   </ul>
+  <div>
    <p>Brewery beer list goes here</p>
+   <div id="beers-here">
+   </div>
  </div>
  <a href="#home" title="To Top">
   <span class="glyphicon glyphicon-chevron-up">Top</span>
