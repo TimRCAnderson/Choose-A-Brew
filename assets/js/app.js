@@ -104,11 +104,12 @@ $(document).ready(function() {
 
 	function locationSearch()
 	{
+		$("#go-to-search").click();
 		var response;
 		var searchType = "locations";
 		var city = $sCity.val().trim();
 		var state = $sState.val().trim();
-		var postal = $sZip.val().trim();
+		// var postal = $sZip.val().trim();
 
 		if(city != "")
 		{
@@ -128,16 +129,16 @@ $(document).ready(function() {
 			state = "";
 		}
 
-		if(postal != "")
-		{
-			postal = "&postalCode=" + postal;
-		}
-		else
-		{
-			postal = "";
-		}
+		// if(postal != "")
+		// {
+		// 	postal = "&postalCode=" + postal;
+		// }
+		// else
+		// {
+		// 	postal = "";
+		// }
 
-		queryURL = brewDBURL + searchType + "?" + brewDBKey + city + state + postal;
+		queryURL = brewDBURL + searchType + "?" + brewDBKey + city + state;
 		$.ajax({
 			method: "GET",
 			url: queryURL

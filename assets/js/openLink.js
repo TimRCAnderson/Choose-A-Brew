@@ -1,5 +1,7 @@
 	function openLink(event, text) 	{
 		event.preventDefault();
+		$(".w3-orange").removeClass("w3-orange");
+		$(event.toElement).addClass("w3-orange");
 		$(".w3-display-middle .shown").addClass("hidden").removeClass("shown");
 		$("#" + text).removeClass("hidden").addClass("shown");
 	}

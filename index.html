@@ -42,7 +42,8 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#home">SEARCH</a></li>
+          <li><a href="#home">HOME</a></li>
+          <li><a id="go-to-search" href="#search-results">BREWERYS</a></li>
           <li><a href="#beer-list">BEER LIST</a></li>
           <li><a href="#beer-ratings">BEER RATINGS</a></li>
           <li><a href="#beer-thumbs">RATE A BEER</a></li>
@@ -75,83 +76,80 @@
                 <div  class="w3-third">
                   <input id="search-state" class="w3-input w3-border" type="text" placeholder="State">
                 </div>
-                <div  class="w3-third">
-                  <input id="search-zip" class="w3-input w3-border" type="text" placeholder="Zip Code">
-                </div>
               </div>
-              <p><button id="search-button" class="w3-button w3-dark-grey">Search</button></p>
-            </form>
-          </div>
-          
-          <!-- Brewery Search Tab -->
-          <div id="brewery-search" class="w3-container w3-white w3-padding-16 myLink hidden">
-            <form id="form-brewery">
-              <h3>Find a Brewery by Name</h3>
-              <div class="w3-row-padding" style="margin:0 -16px;">
-                <div  class="w3-third">
-                  <input id="search-brewery" class="w3-input w3-border" type="text" placeholder="Brewery Name">
-                </div>
-              </div>
-              <p><button id="search-button"  class="w3-button w3-dark-grey">Search</button></p>
-            </form>
-          </div>
+              <p><button id="search-button" class="w3-button w3-red">Search</button></p>
+              </form>
+            </div>
 
-          <!-- Beer Search Tab -->
-          <div id="beer-search" class="w3-container w3-white w3-padding-16 myLink hidden">
-            <form id="form-beer">
-              <h3>Find a Beer by Name</h3>
-              <div class="w3-row-padding" style="margin:0 -16px;">
-                <div  class="w3-third">
-                  <input id="search-beer" class="w3-input w3-border" type="text" placeholder="Beer Name">
+            <!-- Brewery Search Tab -->
+            <div id="brewery-search" class="w3-container w3-white w3-padding-16 myLink hidden">
+              <form id="form-brewery">
+                <h3>Find a Brewery by Name</h3>
+                <div class="w3-row-padding" style="margin:0 -16px;">
+                  <div  class="w3-third">
+                    <input id="search-brewery" class="w3-input w3-border" type="text" placeholder="Brewery Name">
+                  </div>
                 </div>
-              </div>
-              <p><button id="search-button" class="w3-button w3-dark-grey">Search</button></p>
-            </form>
+                <p><button id="search-button"  class="w3-button w3-red">Search</button></p>
+              </form>
+            </div>
+
+            <!-- Beer Search Tab -->
+            <div id="beer-search" class="w3-container w3-white w3-padding-16 myLink hidden">
+              <form id="form-beer">
+                <h3>Find a Beer by Name</h3>
+                <div class="w3-row-padding" style="margin:0 -16px;">
+                  <div  class="w3-third">
+                    <input id="search-beer" class="w3-input w3-border" type="text" placeholder="Beer Name">
+                  </div>
+                </div>
+                <p><button id="search-button" class="w3-button w3-red">Search</button></p>
+              </form>
+            </div>
           </div>
+        </header>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Results Area/ Map and brewery scroll-->
+  <div id="search-results" class="form-position">
+    <p>Brewery Search Results</p>
+    <div class="w3-cell-row">
+      <div class="w3-container w3-cell hidden" style="width:33%">
+        <!-- We can't use a ul tag here because all of the li elements are preceded by a bullet, and we don't want that.  -->
+        <div id="results-list" class="scroll-list">
+
         </div>
-      </header>
-    </div>
-  </div>
-</div>
-
-<!-- Search Results Area/ Map and brewery scroll-->
-<div id="search-results" class="form-position">
-  <p>Search Results</p>
-  <div class="w3-cell-row">
-    <div class="w3-container w3-cell hidden" style="width:33%">
-      <!-- We can't use a ul tag here because all of the li elements are preceded by a bullet, and we don't want that.  -->
-      <div id="results-list" class="scroll-list">
-
+      </div>
+      <div class="w3-container w3-cell hidden" style="width:66%">
+        <div id="the-map"> 
+        </div>
       </div>
     </div>
-    <div class="w3-container w3-cell hidden" style="width:66%">
-      <div id="the-map" style="width:700px;height:700px;background:grey">
-      </div>
+    <a href="#home" title="To Top">
+      <span class="glyphicon glyphicon-chevron-up">Top</span>
+    </a>
+  </div>
+
+  <!-- Taps Image and Caption-->
+  <div class="bgimg-2">
+    <div class="caption">
+      <span class="border">Chosen Brewery's Beer</span>
     </div>
   </div>
-  <a href="#home" title="To Top">
+
+  <!-- Brewery Beer list-->
+  <div id="beer-list" class="form-position">
+    <div >
+     <ul>
+       <!-- Beer List goes here -->
+     </ul>
+     <p>Brewery beer list goes here</p>
+   </div>
+   <a href="#home" title="To Top">
     <span class="glyphicon glyphicon-chevron-up">Top</span>
   </a>
-</div>
-
-<!-- Taps Image and Caption-->
-<div class="bgimg-2">
-  <div class="caption">
-    <span class="border">Chosen Brewery's Beer</span>
-  </div>
-</div>
-
-<!-- Brewery Beer list-->
-<div id="beer-list" class="form-position">
-  <div >
-   <ul>
-     <!-- Beer List goes here -->
-   </ul>
-   <p>Brewery beer list goes here</p>
- </div>
- <a href="#home" title="To Top">
-  <span class="glyphicon glyphicon-chevron-up">Top</span>
-</a>
 </div>
 
 <!-- Craftbeer Image and Caption -->

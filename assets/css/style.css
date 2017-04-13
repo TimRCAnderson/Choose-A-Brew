@@ -36,10 +36,10 @@ h3 {
   color: #d5d5d5 !important;
 }
 .navbar-nav li a:hover {
-  color: #fff !important;
+  color: #f4511e !important;
 }
 .navbar-nav li.active a {
-  color: #fff !important;
+  color: #f4511e !important;
   background-color: #29292c !important;
 }
 .navbar-default .navbar-toggle {
@@ -47,9 +47,18 @@ h3 {
 }
 
 .scroll-list {
- height:200px;  
+  font-size: 14px;
+ max-height:600px; 
  overflow:hidden; 
  overflow-y:scroll;
+}
+
+.brewery {
+  text-align: left;
+}
+
+.brewery-img {
+  margin-right: 15px;
 }
 
 #search-results, #beer-list, #beer-ratings, #beer-thumbs{
@@ -61,6 +70,10 @@ h3 {
 #beer-thumbs {
   width: 600px;
   margin: auto;
+}
+
+#location-search input{
+margin-left: 90px;
 }
 
 #search-brewery, #search-beer {
@@ -76,6 +89,7 @@ h3 {
 }
 
 .form-position {
+  min-height: 500px;
   color:#ddd;
   background-color:#282E34;
   text-align:center;
