@@ -26,5 +26,6 @@ function addMarker(breweryObject)
       map: map
     });
     bounds.extend(marker.position);
+    
   }
 }
