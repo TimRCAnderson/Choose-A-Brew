@@ -14,6 +14,10 @@ h3 {
   color: #111;
 }
 
+h5 {
+  color: #f4511e;
+}
+
 #search-button {
   margin-top: 10px;
   border-radius: 5px;
@@ -48,32 +52,48 @@ h3 {
 
 .scroll-list {
   font-size: 14px;
- max-height:600px; 
- overflow:hidden; 
- overflow-y:scroll;
+  max-height:600px; 
+  overflow:hidden; 
+  overflow-y:scroll;
 }
 
-.brewery {
+.brewery-desc {
+  margin: auto;
   text-align: left;
+  padding: 20px;
+}
+
+.beer-button {
+  background-color: #f4511e; 
+  margin-left: 20px;
 }
 
 .brewery-img {
-  margin-right: 15px;
+  max-width: 60%;
+  padding: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 #search-results, #beer-list, #beer-ratings, #beer-thumbs{
   background-color: #282E34;
-  font-size:25px;
+  font-size:18px;
   color: #f7f7f7;
 }
 
+#beers-here {
+  text-align: left;
+  max-width: 1100px;
+  margin-left: 150px;
+}
+
 #beer-thumbs {
-  width: 600px;
+  /*width: 600px;*/
   margin: auto;
 }
 
 #location-search input{
-margin-left: 90px;
+  margin-left: 90px;
 }
 
 #search-brewery, #search-beer {
@@ -89,14 +109,20 @@ margin-left: 90px;
 }
 
 .form-position {
-  min-height: 500px;
+  padding-top: 50px;
+  min-height: 550px;
   color:#ddd;
   background-color:#282E34;
-  text-align:center;
-  opacity: 0.9;
+  /*text-align:center;*/
+  opacity: 0.85;
 }
 
-.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+#section-lead {
+  margin-left: 30px;
+  font-size: 24px;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
   position: relative;
   opacity: 0.65;
   background-attachment: fixed;
@@ -110,7 +136,7 @@ margin-left: 90px;
   min-height: 600px;
 }
 .bgimg-2 {
-  background-image: url("../images/taps.jpg");
+  background-image: url("../images/bar4.jpg");
   min-height: 600px;
 }
 .bgimg-3 {
@@ -118,8 +144,13 @@ margin-left: 90px;
   min-height: 500px;
 }
 .bgimg-4 {
-  background-image: url("../images/beer.jpg");
+  background-image: url("../images/taps.jpg");
   min-height: 600px;
+}
+
+.bgimg-5 {
+  background-image: url("../images/beer.jpg");
+  min-height: 700px;
 }
 
 .caption {
