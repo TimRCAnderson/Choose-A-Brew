@@ -43,6 +43,7 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#home">SEARCH</a></li>
+          <li><a id="go-to-search" href="#search-results">BREWERYS</a></li>
           <li><a href="#beer-list">BEER LIST</a></li>
           <li><a href="#beer-ratings">BEER RATINGS</a></li>
           <li><a href="#beer-thumbs">RATE A BEER</a></li>
@@ -57,9 +58,9 @@
 
       <!-- Search Box Header -->
       <header class="w3-display-container w3-content w3-hide-small" style="max-width:900px">
-        <div id="search-box" class="w3-display-middle" style="width:65%">
+        <div id="search-box"  class="w3-display-middle" style="width:65%">
           <div class="w3-bar w3-black">
-            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'location-search');">Location</button>
+            <button class="w3-bar-item w3-button tablink w3-orange" onclick="openLink(event, 'location-search');">Location</button>
             <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'brewery-search');">Brewery</button>
             <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'beer-search');">Beer</button>
           </div>
@@ -75,14 +76,11 @@
                 <div  class="w3-third">
                   <input id="search-state" class="w3-input w3-border" type="text" placeholder="State">
                 </div>
-                <div  class="w3-third">
-                  <input id="search-zip" class="w3-input w3-border" type="text" placeholder="Zip Code">
-                </div>
               </div>
-              <p><button id="search-button" class="w3-button w3-dark-grey">Search</button></p>
+              <p><button id="search-button" class="w3-button w3-red">Search</button></p>
             </form>
           </div>
-          
+
           <!-- Brewery Search Tab -->
           <div id="brewery-search" class="w3-container w3-white w3-padding-16 myLink hidden">
             <form id="form-brewery">
@@ -92,7 +90,7 @@
                   <input id="search-brewery" class="w3-input w3-border" type="text" placeholder="Brewery Name">
                 </div>
               </div>
-              <p><button id="search-button"  class="w3-button w3-dark-grey">Search</button></p>
+              <p><button id="search-button"  class="w3-button w3-red">Search</button></p>
             </form>
           </div>
 
@@ -105,53 +103,53 @@
                   <input id="search-beer" class="w3-input w3-border" type="text" placeholder="Beer Name">
                 </div>
               </div>
-              <p><button id="search-button" class="w3-button w3-dark-grey">Search</button></p>
+              <p><button id="search-button" class="w3-button w3-red">Search</button></p>
             </form>
           </div>
         </div>
       </header>
     </div>
   </div>
-</div>
 
-<!-- Search Results Area/ Map and brewery scroll-->
-<div id="search-results" class="form-position">
-  <p>Search Results</p>
-  <div class="w3-cell-row">
-    <div class="w3-container w3-cell hidden" style="width:33%">
-      <!-- We can't use a ul tag here because all of the li elements are preceded by a bullet, and we don't want that.  -->
-      <div id="results-list" class="scroll-list">
 
+  <!-- Search Results Area/ Map and brewery scroll-->
+  <div id="search-results" class="form-position">
+    <p id="section-lead">Brewery Search Results</p>
+    <div class="w3-cell-row">
+      <div class="w3-container w3-cell hidden" style="width:33%">
+        <!-- We can't use a ul tag here because all of the li elements are preceded by a bullet, and we don't want that.  -->
+        <div id="results-list" class="scroll-list">
+
+        </div>
+      </div>
+      <div class="w3-container w3-cell hidden" style="width:66%">
+        <div id="the-map"> 
+        </div>
       </div>
     </div>
-    <div class="w3-container w3-cell hidden" style="width:66%">
-      <div id="the-map" style="width:700px;height:700px;background:grey">
-      </div>
+    <a href="#home" title="To Top">
+      <span class="glyphicon glyphicon-chevron-up">Top</span>
+    </a>
+  </div>
+
+  <!-- Taps Image and Caption-->
+  <div class="bgimg-2">
+    <div class="caption">
+      <span class="border">Chosen Brewery's Beer</span>
     </div>
   </div>
-  <a href="#home" title="To Top">
+
+  <!-- Brewery Beer list-->
+  <div id="beer-list" class="form-position">
+    <div>
+     <p id="section-lead">Brewery beer list</p>
+     <p></p>
+     <div id="beers-here" class="scroll-list">
+     </div>
+   </div>
+   <a href="#home" title="To Top">
     <span class="glyphicon glyphicon-chevron-up">Top</span>
   </a>
-</div>
-
-<!-- Taps Image and Caption-->
-<div class="bgimg-2">
-  <div class="caption">
-    <span class="border">Chosen Brewery's Beer</span>
-  </div>
-</div>
-
-<!-- Brewery Beer list-->
-<div id="beer-list" class="form-position">
-  <div >
-   <ul>
-     <!-- Beer List goes here -->
-   </ul>
-   <p>Brewery beer list goes here</p>
- </div>
- <a href="#home" title="To Top">
-  <span class="glyphicon glyphicon-chevron-up">Top</span>
-</a>
 </div>
 
 <!-- Craftbeer Image and Caption -->
@@ -167,13 +165,12 @@
     <table class="table">
       <!-- Beer Ratings Table goes Here -->
     </table>
-    
-</table>
-<p>Beer ratings table.</p>
-<a href="#home" title="To Top">
-  <span class="glyphicon glyphicon-chevron-up">Top</span>
-</a>
-</div>
+
+    <p id="section-lead">Beer ratings table.</p>
+    <a href="#home" title="To Top">
+      <span class="glyphicon glyphicon-chevron-up">Top</span>
+    </a>
+  </div>
 </div>
 
 <!-- Beer Image and Caption -->
@@ -194,6 +191,7 @@
       <label for="info2">info2:</label>
       <input type="info2" class="form-control" id="info2" placeholder="Enter info2">
     </div>
+
        <div id="icon-beer"><input type="hidden" name="rating"/>
     </div>  
     <div class="w3-quarter">
@@ -205,9 +203,15 @@
   </form>
 </div>
 
+<div class="bgimg-5">
+  <div class="caption">
+  <span class="border">Now go get a delicious local brew!</span>
+  </div> 
+</div>
+
 <!-- footer area -->
 <footer>
-  <p>Brew Crew Class Project 1</p>
+  <p>The Brew Crew, Tim Anderson, Ernest Davis, and Lisa Magee's Class Project #1</p>
   <a href="#home" title="To Top">
     <span class="glyphicon glyphicon-chevron-up">Top</span>
   </a>
