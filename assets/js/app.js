@@ -140,7 +140,7 @@ $(document).ready(function() {
 		{
 			state = "";
 		}
-    
+
 		// if(postal != "")
 		// {
 		// 	postal = "&postalCode=" + postal;
@@ -242,17 +242,17 @@ $(document).ready(function() {
 		if(anObject.brewery.images === undefined)
 		{
 			return ($("<button>")
-				.text("Website")
-				.addClass("w3-button w3-dark-grey"));
-		}
-		else
-		{
-			return ($("<img>")
-				.attr("src", anObject.brewery.images.icon)
-				.attr("alt", "Brewery Logo")
-				.addClass("img-thumbnail brewery-img"));
-		}
+				.text("WS")
+				.addClass("w3-button"));
 	}
+	else
+	{
+		return ($("<img>")
+			.attr("src", anObject.brewery.images.icon)
+			.attr("alt", "Brewery Logo")
+			.addClass("img-thumbnail brewery-img"));
+	}
+}
 
 	//TODO: add D3js bar graph for rating distribution
 	//TODO: finish search results displays
