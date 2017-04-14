@@ -1,3 +1,5 @@
+var currentBeer;
+
 $(document).ready(function() {
 	var brewDBURL = "https://fathomless-plains-61908.herokuapp.com/beer/"
 	var brewDBKey = "key=f763de9765b39a76ecb1f8861767928a"
@@ -13,6 +15,8 @@ $(document).ready(function() {
 	var $sBrewery = $("#search-brewery");
 	var $results = $("#results-list");
 	var $beers = $("#beers-here");
+
+
 
 	console.log($sByLoc.toString());
 
@@ -182,7 +186,7 @@ $(document).ready(function() {
 								.append($("<button>")
 									.addClass("btn beer-button")
 									.text("get Beers")
-									.data("breweryId", response[i].breweryId)
+									.data({breweryId: response[i].breweryId})
 									.click(getBeers))));
 						addMarker(response[i]);
 						map.fitBounds(bounds);
@@ -196,6 +200,9 @@ $(document).ready(function() {
 	function getBeers()
 	{
 		var $this = $(this);
+		var $breweryDiv = $this.parent().parent().clone();
+		$breweryDiv.find(".btn.beer-button").parent().remove();
+		$("#current-brewery").empty().append($breweryDiv);
 		var response;
 		queryURL = brewDBURL + "brewery/" + $this.data("breweryId") + "/beers?" + brewDBKey;
 		$.ajax({
@@ -204,6 +211,7 @@ $(document).ready(function() {
 		}).done(function(r) {
 			response = r.data;
 			console.log(r);
+ 	
 			for(var i = 0; i < response.length; i++)
 			{
 				var beerdiv = $("<div>")
@@ -211,17 +219,22 @@ $(document).ready(function() {
 				.addClass("beer")
 				.append($("<h5>")
 					.addClass("beer-name")
-					.text(response[i].name))
+					.text(response[i].name.trim())
+					.click(getCurrentBeer))
 				.append($("<p>")
 					.addClass("beer-description")
-					.text(response[i].description))
-				.append($("<div>")
-					.addClass("rating-container")
-					.append($.fn.rating()));
+					.text(response[i].description));
 				beerdiv.appendTo($beers);
 			}
 			location.href = "#beer-list";
 		});
+	}
+
+	function getCurrentBeer()
+	{
+		var $this = $(this);
+		currentBeer = $this.parent().data().id;
+
 	}
 
 	function breweryLinkPop(anObject)
@@ -244,5 +257,6 @@ $(document).ready(function() {
 	//TODO: add D3js bar graph for rating distribution
 	//TODO: finish search results displays
 	//TODO: pass .data() of beer name to rating submission form.
-	//TODO: add brewery divnks on their names.
+
+	//TODO: pass brewery and beer IDs.
 });
