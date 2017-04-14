@@ -24,4 +24,3 @@ function openLink(event, text) 	{
 	// 	// Click on the first tablink on load
 	// 	document.getElementsByClassName("tablink")[0].click();
 
-
