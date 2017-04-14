@@ -142,11 +142,31 @@
   <!-- Brewery Beer list-->
   <div id="beer-list" class="form-position">
     <div>
-      <p id="section-lead">Brewery beer list</p>
-      <div id="current-brewery"></div>
-      <div id="beers-here" class="scroll-list">
-      </div>
-    </div>
+     <p id="section-lead">Brewery beer list</p>
+     <div id="current-brewery"></div>
+     <div id="beers-here" class="scroll-list">
+     </div>
+   </div>
+   <a href="#home" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up">Top</span>
+  </a>
+</div>
+
+<!-- Craftbeer Image and Caption -->
+<div class="bgimg-3">
+  <div class="caption">
+    <span class="border">Beer Ratings</span>
+  </div>
+</div>
+
+<!-- Chosen Beer Previous Ratings Table  -->
+<div id="beer-ratings" class="form-position">
+  <div class="table-responsive">
+    <table class="table">
+      <!-- Beer Ratings Table goes Here -->
+    </table>
+
+    <p id="section-lead">Beer ratings table.</p>
     <a href="#home" title="To Top">
       <span class="glyphicon glyphicon-chevron-up">Top</span>
     </a>
@@ -171,33 +191,27 @@
       </a>
     </div>
   </div>
-
   <!-- Beer Image and Caption -->
   <div class="bgimg-4">
     <div class="caption">
       <span class="border">Rate the beer!</span>
     </div>
   </div>
-
   <!-- User rating form for chosen beer -->
   <div class="form-position">
     <form id="beer-thumbs" >
-      <div class="form-group hidden">
-        <label for="info1">info1:</label>
-        <input type="info1" class="form-control" id="info1" placeholder="Enter info1">
+      <div id="icon-beer"><input type="hidden" name="rating"/>
+    </div>  
+    <div class="w3-quarter">
+        <input id="user-comment" class="w3-input w3-black" type="text" placeholder="Comment">
       </div>
-      <div class="form-group hidden">
-        <label for="info2">info2:</label>
-        <input type="info2" class="form-control" id="info2" placeholder="Enter info2">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-primary" id="add-user">Submit</button>
       <p id="section-lead">Rate the beer/ Beer rating form goes in here.</p>
       <a href="#home" title="To Top">
         <span class="glyphicon glyphicon-chevron-up">Top</span>
       </a>
     </form>
   </div>
-
   <div class="bgimg-5">
     <div class="caption">
       <span class="border">Now go get a delicious local brew!</span>
@@ -231,5 +245,11 @@
 <script src="assets/js/mapFunc.js"></script>
 <script src="assets/js/userRating.js"></script>
 <script src="assets/js/app.js"></script>
+<script>
+  $(document).ready(function(){
+
+    $("#icon-beer").rating();
+  });
+</script>
 </body>
 </html>

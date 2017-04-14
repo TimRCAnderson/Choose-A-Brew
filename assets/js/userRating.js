@@ -1,3 +1,5 @@
+var userRating;
+var userComment = "";
 
 $.fn.rating = function (method, options) {
     method = method || 'create';
@@ -33,9 +35,9 @@ $.fn.rating = function (method, options) {
         }
 
         $('.ratingicon').mouseover(function () {
-            var starValue = $(this).data('value');
+            var thumbValue = $(this).data('value');
             var ratingIcons = $('.ratingicon');
-            for (var i = 0; i < starValue; i++) {
+            for (var i = 0; i < thumbValue; i++) {
                 $(ratingIcons[i]).css('color', settings.coloron);
             }
         }).mouseout(function () {
@@ -63,25 +65,22 @@ $.fn.rating = function (method, options) {
         }
         //register the click events
         this.find("span.ratingicon").click(function () {
-            rating = $(this).attr('data-value');
-            $(this).parent().attr('data-rating', rating);
+            userRating = $(this).attr('data-value');
+            $(this).parent().attr('data-rating', userRating);
             paint($(this).parent());
             settings.onClick.call($(this).parent());
-            console.log (rating);
-            database.ref().push({
-                userRating: rating
-            });
-
-        });
+            console.log (userRating);
+          
+         });
 
         function paint(div) {
-            rating = parseInt(div.attr('data-rating'));
-            div.find("input").val(rating);	
+            userRating = parseInt(div.attr('data-rating'));
+            div.find("input").val(userRating);	
             div.find("span.ratingicon").each(function () {	
 
                 var rating = parseInt($(this).parent().attr('data-rating'));
                 var value = parseInt($(this).attr('data-value'));
-                if (value > rating) {
+                if (value > userRating) {
                     $(this).css('color', settings.coloroff);
                 }
                 else {
@@ -90,6 +89,97 @@ $.fn.rating = function (method, options) {
             })
         }
     };
+
+$("#add-user").on("click", function(event) {
+        event.preventDefault();
+        ratePush = userRating;
+        userComment = $("#user-comment").val().trim();
+       
+
+
+database.ref().child("BrewID").child("BeerID").push({
+    userRating: ratePush,
+    rateComment: userComment
+
+});
+
+});
+
+
+
+// return false;
+
+
+// database.push().chlild("BrewID").child(BeerID) ({
+//     userRating:rating,
+//     userCommnet: comment
+
+// });
+
+
+
+// $(document).ready(function() {
+
+//      $("#add-train").on("click", function() {
+//         name = $('#name-input').val().trim();
+//         destination = $('#destination-input').val().trim();
+//         firstTrainTime = $('#first-train-time-input').val().trim();
+//         frequency = $('#frequency-input').val().trim();
+//           firstTimeConverted = moment(firstTrainTime, "hh:mm").subtract(1, "years");
+//           currentTime = moment();
+//           diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+//           tRemainder = diffTime % frequency;
+//           minutesTillTrain = frequency - tRemainder;
+//           nextTrain = moment().add(minutesTillTrain, "minutes");
+//           nextTrainFormatted = moment(nextTrain).format("hh:mm");
+
+//         // Code for the push
+//         keyHolder = dataRef.push({
+//             name: name,
+//             destination: destination,
+//             firstTrainTime: firstTrainTime,  
+//             frequency: frequency,
+//                nextTrainFormatted: nextTrainFormatted,
+//                minutesTillTrain: minutesTillTrain
+//           });
+         
+//           $('#name-input').val('');
+//           $('#destination-input').val('');
+//           $('#first-train-time-input').val('');
+//           $('#frequency-input').val('');
+
+//           return false;
+//      });
+          
+//           dataRef.on("child_added", function(childSnapshot) {
+
+
+//    $('.train-schedule').append("<tr class='table-row' id=" + "'" + childSnapshot.key() + "'" + ">" +
+//      "<td class='col-xs-3'>" + childSnapshot.val().name +
+//      "</td>" +
+//      "<td class='col-xs-2'>" + childSnapshot.val().destination +
+//      "</td>" +
+//      "<td class='col-xs-2'>" + childSnapshot.val().frequency +
+//      "</td>" +
+//                "<td class='col-xs-2'>" + childSnapshot.val().nextTrainFormatted + // Next Arrival Formula ()
+//                "</td>" +
+//                "<td class='col-xs-2'>" + childSnapshot.val().minutesTillTrain + // Minutes Away Formula
+//                "</td>" +
+//                "<td class='col-xs-1'>" + "<input type='submit' value='remove train' class='remove-train btn btn-primary btn-sm'>" + "</td>" +
+//                "</tr>");
+// // Handle the errors
+// }, function(errorObject){
+//     console.log("Errors handled: " + errorObject.code)
+// });
+
+//           $("body").on("click", ".remove-train", function(){
+//                $(this).closest ('tr').remove();
+//                getKey = $(this).parent().parent().attr('id');
+//                dataRef.child(getKey).remove();
+//           });
+
+// }); 
+
 
 
 
