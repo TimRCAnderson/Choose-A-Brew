@@ -229,7 +229,7 @@ $(document).ready(function() {
 		if(anObject.brewery.images === undefined)
 		{
 			return ($("<button>")
-				.text("WS")
+				// .text("WS")
 				.addClass("w3-button"));
 	}
 	else

@@ -70,7 +70,7 @@ h5 {
 }
 
 .brewery .w3-button {
-  background: white;
+  background-image: url("../images/mugs.jpg");
   height: 55px;
   width: 55px;
   color: black;
