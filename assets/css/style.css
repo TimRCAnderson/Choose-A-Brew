@@ -50,6 +50,21 @@ h5 {
   border-color: transparent;
 }
 
+/*.navbar-collapse .icon {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-collapse a:not(:first-child) {display: none;}
+  .navbar-collapse a.icon {
+    float: right;
+    display: block;
+  }*/
+
+#location-search, #brewery-search, #beer-search {
+  background-image: url("../images/head.jpg");
+}
+
 .w3-third {
   display: inline-flex;
   float: none;
@@ -120,11 +135,6 @@ h5 {
 
 #the-map{
   height: 600px;
-}
-
-#location-search, #brewery-search, #beer-search {
-  background-image: url("../images/head.jpg");
-
 }
 
 .form-position {

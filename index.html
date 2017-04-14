@@ -40,14 +40,17 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="#home">CHOOSE A BREW</a>
       </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="collapse navbar-collapse">
+      <div class="topnav" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#home">SEARCH</a></li>
           <li><a id="go-to-search" href="#search-results">BREWERYS</a></li>
           <li><a href="#beer-list">BEER LIST</a></li>
           <li><a href="#beer-ratings">BEER RATINGS</a></li>
           <li><a href="#beer-thumbs">RATE A BEER</a></li>
-        </ul>
+          </ul>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
       </div>
     </div>
   </nav>
@@ -143,6 +146,7 @@
     <div>
      <p id="section-lead">Brewery beer list</p>
      <div id="current-brewery"></div>
+     <p></p>
      <div id="beers-here" class="scroll-list">
      </div>
    </div>
@@ -164,62 +168,35 @@
     <table class="table">
       <!-- Beer Ratings Table goes Here -->
     </table>
-
     <p id="section-lead">Beer ratings table.</p>
     <a href="#home" title="To Top">
       <span class="glyphicon glyphicon-chevron-up">Top</span>
     </a>
   </div>
+</div>
 
-
+<!-- Beer Taps and Caption -->
 <div class="bgimg-4">
   <div class="caption">
     <span class="border">Rate the beer!</span>
-
   </div>
+</div>
 
-  <!-- Chosen Beer Previous Ratings Table  -->
-  <div id="beer-ratings" class="form-position">
-    <div class="table-responsive">
-      <table class="table">
-        <!-- Beer Ratings Table goes Here -->
-      </table>
-      <p id="section-lead">Beer ratings table.</p>
-      <a href="#home" title="To Top">
-        <span class="glyphicon glyphicon-chevron-up">Top</span>
-      </a>
-    </div>
-  </div>
-  
-  <!-- Beer Image and Caption -->
-  <div class="bgimg-4">
-    <div class="caption">
-      <span class="border">Rate the beer!</span>
-    </div>
-
-  </div>
-  <!-- User rating form for chosen beer -->
-  <div class="form-position">
-    <form id="beer-thumbs" >
-      <div id="icon-beer"><input type="hidden" name="rating"/>
+<!-- User rating form for chosen beer -->
+<div class="form-position">
+ <p id="section-lead">Rate the beer!</p>
+  <div id="beer-thumbs" >
+    <div id="icon-beer"><input type="hidden" name="rating"/>
     </div>  
     <div class="w3-quarter">
-        <input id="user-comment" class="w3-input w3-black" type="text" placeholder="Comment">
-      </div>
+      <input id="user-comment" class="w3-input w3-black" type="text" placeholder="Comment">
+    </div>
     <button type="submit" class="btn btn-primary" id="add-user">Submit</button>
-      <p id="section-lead">Rate the beer/ Beer rating form goes in here.</p>
-      <a href="#home" title="To Top">
-        <span class="glyphicon glyphicon-chevron-up">Top</span>
-      </a>
-    </form>
+    <a href="#home" title="To Top">
+      <span class="glyphicon glyphicon-chevron-up">Top</span>
+    </a>
   </div>
-  
-  
-  <div class="bgimg-5">
-    <div class="caption">
-      <span class="border">Now go get a delicious local brew!</span>
-    </div> 
-  </div>
+</div>
 
 <!-- Beer image and caption -->
 <div class="bgimg-5">
@@ -235,7 +212,7 @@
    <span class="glyphicon glyphicon-chevron-up">Top</span>
  </a>
 </footer>
-  
+
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX9fOVOi9M_m3NSS7etyIr1Oe2dlt_Edk">
 </script>
 <script src="assets/js/mapFunc.js"></script>
