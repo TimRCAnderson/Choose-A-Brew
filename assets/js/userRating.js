@@ -102,6 +102,9 @@ $.fn.rating = function (method, options) {
                 userRating: ratePush,
                 rateComment: userComment
             });
+
+            $("#user-comment").val("");
+            $("#icon-beer").rating();
         }
 
     });
