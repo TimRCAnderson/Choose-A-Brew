@@ -104,7 +104,7 @@ $.fn.rating = function (method, options) {
             });
 
             $("#user-comment").val("");
-            $("#icon-beer").rating();
+            $("#icon-beer").rating("set", 0);
         }
 
     });

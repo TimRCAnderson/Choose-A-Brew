@@ -112,8 +112,9 @@ h5.beer-name{
   text-align: left;
   /*min-height: 400px;*/
   min-width: 600px;
-  max-width: 1100px;
-  margin-left: 150px;
+  max-width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .row {
@@ -236,7 +237,7 @@ footer {
   display: inline-block;
 }
 
-.margin-center{
+/*.margin-center{
   text-align: center;
   margin: 0 auto;
 }
@@ -244,7 +245,7 @@ footer {
 .navigate-here{
   position: relative;
   top: -93px;
-}
+}*/
 
 .rating-chart div {
   font: 10px sans-serif;
