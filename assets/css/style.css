@@ -92,6 +92,10 @@ h5 {
   margin-left: 20px;
 }
 
+h5.beer-name{
+  cursor: hand;
+}
+
 .brewery-img {
   max-width: 60%;
   margin-top: 20px;
@@ -228,6 +232,29 @@ footer {
 
 .brewery *{
   display: inline-block;
+}
+
+.margin-center{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.navigate-here{
+  position: relative;
+  top: -93px;
+}
+
+.rating-chart div {
+  font: 10px sans-serif;
+  background-color: #f4511e;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+.rating-chart{
+  margin-left: 10%;
 }
 
 /* Turn off parallax scrolling for tablets and phones */

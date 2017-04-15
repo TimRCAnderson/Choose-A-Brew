@@ -9,6 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+  <script src="https://d3js.org/d3.v4.js"></script>
   <script>
   // Initialize Firebase
   var config = {
@@ -60,7 +61,7 @@
           <div class="w3-bar w3-black">
             <button class="w3-bar-item w3-button tablink w3-orange" onclick="openLink(event, 'location-search');">Location</button>
             <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'brewery-search');">Brewery</button>
-            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'beer-search');">Beer</button>
+            <button class="w3-bar-item w3-button tablink hidden" onclick="openLink(event, 'beer-search');">Beer</button>
           </div>
 
           <!-- Location Search Tab -->
@@ -124,34 +125,34 @@
         </div>
       </div>
     </div>
-   <div class="w3-center">
-   <a href="#home" title="To Top">
-    <span class="glyphicon glyphicon-chevron-up">Top</span>
-  </a>
+    <div class="w3-center">
+     <a href="#home" title="To Top">
+      <span class="glyphicon glyphicon-chevron-up">Top</span>
+    </a>
   </div>
-  </div>
+</div>
 
-  <!-- Bar Taps Image and Caption-->
-  <div class="bgimg-2">
-    <div class="caption">
-      <span class="border">Chosen Brewery's Beer</span>
-    </div>
+<!-- Bar Taps Image and Caption-->
+<div class="bgimg-2">
+  <div class="caption">
+    <span class="border">Chosen Brewery's Beer</span>
   </div>
+</div>
 
-  <!-- Brewery Beer list-->
-  <div id="beer-list" class="form-position">
-    <div>
-     <p id="section-lead">Brewery beer list</p>
-     <div id="current-brewery"></div>
-     <p></p>
-     <div id="beers-here" class="scroll-list">
-     </div>
+<!-- Brewery Beer list-->
+<div id="beer-list" class="form-position">
+  <div>
+   <p id="section-lead">Brewery beer list</p>
+   <div id="current-brewery"></div>
+   <p></p>
+   <div id="beers-here" class="scroll-list">
    </div>
-   <div class="w3-center">
+ </div>
+ <div class="w3-center">
    <a href="#home" title="To Top">
     <span class="glyphicon glyphicon-chevron-up">Top</span>
   </a>
-  </div>
+</div>
 </div>
 
 <!-- Craftbeer Image and Caption -->
@@ -163,17 +164,24 @@
 
 <!-- Chosen Beer Previous Ratings Table  -->
 <div id="beer-ratings" class="form-position">
+<div id="beer-ratings-navigate" class="navigate-here"></div>
   <div class="table-responsive">
-    <table class="table">
+    <p id="section-lead">Beer ratings table.</p>
+    <div id="ratings-beer-name" class="w3-center"></div>
+    <table class="table w3-center border">
       <!-- Beer Ratings Table goes Here -->
     </table>
-    <p id="section-lead">Beer ratings table.</p>
+    <div class="rating-chart w3-center">
+    </div>
     <div class="w3-center">
-   <a href="#home" title="To Top">
-    <span class="glyphicon glyphicon-chevron-up">Top</span>
-  </a>
+    <button id="goToRate" class="w3-button w3-orange hidden">Rate the Beer</button>
+    </div>
+    <div class="w3-center">
+     <a href="#home" title="To Top">
+      <span class="glyphicon glyphicon-chevron-up">Top</span>
+    </a>
   </div>
-  </div>
+</div>
 </div>
 
 <!-- Beer Taps and Caption -->
@@ -194,9 +202,9 @@
      <button class="w3-button w3-hover-grey" id="add-user">Submit</button>
    </div>
    <div class="w3-center">
-   <a href="#home" title="To Top">
-    <span class="glyphicon glyphicon-chevron-up">Top</span>
-  </a>
+     <a href="#home" title="To Top">
+      <span class="glyphicon glyphicon-chevron-up">Top</span>
+    </a>
   </div>
 </div>
 </div>
@@ -222,12 +230,5 @@
 <script src="assets/js/mapFunc.js"></script>
 <script src="assets/js/userRating.js"></script>
 <script src="assets/js/app.js"></script>
-
-<script>
-  $(document).ready(function(){
-
-    $("#icon-beer").rating();
-  });
-</script>
 </body>
 </html>
