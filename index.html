@@ -40,17 +40,14 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="#home">CHOOSE A BREW</a>
       </div>
-      <div class="collapse navbar-collapse">
-      <div class="topnav" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul  id="nav" class="nav navbar-nav navbar-right">
           <li><a href="#home">SEARCH</a></li>
           <li><a id="go-to-search" href="#search-results">BREWERYS</a></li>
           <li><a href="#beer-list">BEER LIST</a></li>
           <li><a href="#beer-ratings">BEER RATINGS</a></li>
           <li><a href="#beer-thumbs">RATE A BEER</a></li>
-          </ul>
-      </div>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </ul>
       </div>
     </div>
   </nav>
@@ -129,9 +126,11 @@
         </div>
       </div>
     </div>
-    <a href="#home" title="To Top">
-      <span class="glyphicon glyphicon-chevron-up">Top</span>
-    </a>
+   <div class="w3-center">
+   <a href="#home" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up">Top</span>
+  </a>
+  </div>
   </div>
 
   <!-- Bar Taps Image and Caption-->
@@ -150,9 +149,11 @@
      <div id="beers-here" class="scroll-list">
      </div>
    </div>
+   <div class="w3-center">
    <a href="#home" title="To Top">
     <span class="glyphicon glyphicon-chevron-up">Top</span>
   </a>
+  </div>
 </div>
 
 <!-- Craftbeer Image and Caption -->
@@ -169,9 +170,11 @@
       <!-- Beer Ratings Table goes Here -->
     </table>
     <p id="section-lead">Beer ratings table.</p>
-    <a href="#home" title="To Top">
-      <span class="glyphicon glyphicon-chevron-up">Top</span>
-    </a>
+    <div class="w3-center">
+   <a href="#home" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up">Top</span>
+  </a>
+  </div>
   </div>
 </div>
 
@@ -183,19 +186,21 @@
 </div>
 
 <!-- User rating form for chosen beer -->
-<div class="form-position">
+<div class="form-position" id="beer-thumbs">
  <p id="section-lead">Rate the beer!</p>
-  <div id="beer-thumbs" >
-    <div id="icon-beer"><input type="hidden" name="rating"/>
-    </div>  
-    <div class="w3-quarter">
-      <input id="user-comment" class="w3-input w3-black" type="text" placeholder="Comment">
-    </div>
-    <button type="submit" class="btn btn-primary" id="add-user">Submit</button>
-    <a href="#home" title="To Top">
-      <span class="glyphicon glyphicon-chevron-up">Top</span>
-    </a>
+ <div class="w3-row"  >
+   <div class="w3-center" id="icon-beer"><input type="hidden" name="rating"/>
+   </div>
+   <input id="user-comment" class="w3-input w3-black w3-center" type="text" placeholder="Comment">
+   <div class="w3-center" id="submit-div">
+     <button class="w3-button w3-hover-grey" id="add-user">Submit</button>
+   </div>
+   <div class="w3-center">
+   <a href="#home" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up">Top</span>
+  </a>
   </div>
+</div>
 </div>
 
 <!-- Beer image and caption -->
@@ -213,11 +218,13 @@
  </a>
 </footer>
 
+<!-- Scripts area -->
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX9fOVOi9M_m3NSS7etyIr1Oe2dlt_Edk">
 </script>
 <script src="assets/js/mapFunc.js"></script>
 <script src="assets/js/userRating.js"></script>
 <script src="assets/js/app.js"></script>
+
 <script>
   $(document).ready(function(){
 

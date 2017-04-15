@@ -254,14 +254,7 @@ $(document).ready(function() {
 	}
 }
 
-function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
+
 
 	//TODO: add D3js bar graph for rating distribution
 	//TODO: finish search results displays
@@ -269,3 +262,6 @@ function myFunction() {
 
 	//TODO: pass brewery and beer IDs.
 });
+
+
+
