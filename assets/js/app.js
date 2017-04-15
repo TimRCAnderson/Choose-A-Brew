@@ -1,4 +1,5 @@
 var currentBeer;
+var currentBrewery;
 
 $(document).ready(function() {
 	var brewDBURL = "https://fathomless-plains-61908.herokuapp.com/beer/"
@@ -15,8 +16,8 @@ $(document).ready(function() {
 	var $sBrewery = $("#search-brewery");
 	var $results = $("#results-list");
 	var $beers = $("#beers-here");
-
-
+	var $beerRatings = $("#beer-ratings")
+	$beers.addClass("col-sm-12");
 
 	console.log($sByLoc.toString());
 
@@ -37,7 +38,6 @@ $(document).ready(function() {
 
 	function brewerySearch()
 	{
-		location.href = "#search-results";
 		var response;
 		var searchType = "breweries";
 		var queryURL = brewDBURL + searchType + "?" + brewDBKey + "&name=" + $sBrewery.val().trim();
@@ -48,40 +48,44 @@ $(document).ready(function() {
 		}).done(function(r) {
 			response = r.data;
 			console.log(response);
-			$results.empty();
-			for(var i = 0; i < response.length; i++)
+			console.log(r);
+			if(response != undefined)
 			{
-				var brewdiv = $("<div>")
-				.data(response[i])
-				.addClass("row-brewery")
-				.append($("<div>")
-					.addClass("col-sm-12")
+				$results.empty();
+				for(var i = 0; i < response.length; i++)
+				{
+					var brewdiv = $("<div>")
+					.data(response[i])
+					.addClass("row-brewery")
 					.append($("<div>")
-						.addClass("brewery")
-						.append($("<img>")
-							.attr("src", checkImages(response[i]))
-							.attr("alt", "Brewery Logo")
-							.addClass("img-thumbnail brewery-img" + noImageHidden(response[i])))
-						.append($("<h4>")
-							.addClass("brewery-name")
-							.text(response[i].brewery.name)))
-					.append($("<p>")
-						.addClass("brewery-desc")
-						.text(response[i].brewery.description))
-					.append($("<div>")
-						.append($("<button>")
-							.text("get Beers")
-							.data("breweryId", response[i].breweryId)
-							.click(getBeers))));
+						.addClass("col-sm-12")
+						.append($("<div>")
+							.addClass("brewery")
+							.append($("<img>")
+								.attr("src", checkImages(response[i]))
+								.attr("alt", "Brewery Logo")
+								.addClass("img-thumbnail brewery-img" + noImageHidden(response[i])))
+							.append($("<h4>")
+								.addClass("brewery-name")
+								.text(response[i].brewery.name)))
+						.append($("<p>")
+							.addClass("brewery-desc")
+							.text(response[i].brewery.description))
+						.append($("<div>")
+							.append($("<button>")
+								.text("get Beers")
+								.data("breweryId", response[i].breweryId)
+								.click(getBeers))));
 
-				brewdiv.appendTo($results);
+					brewdiv.appendTo($results);
+				}
+				location.href = "#search-results";
 			}
 		});
 	}
 
 	function beerSearch()
 	{
-		location.href = "#search-results";
 		var response;
 		var searchType = "beers";
 		var queryURL = brewDBURL + searchType + "?" + brewDBKey + "&name=" + $sBeer.val().trim();
@@ -110,13 +114,13 @@ $(document).ready(function() {
 						);
 					beerdiv.appendTo($("#beer-list"));
 				}
+				location.href = "#beer-list";
 			}
 		});
 	}
 
 	function locationSearch()
 	{
-		location.href = "#search-results";
 		var response;
 		var searchType = "locations";
 		var city = $sCity.val().trim();
@@ -193,6 +197,7 @@ $(document).ready(function() {
 						brewdiv.appendTo($results);
 						$results.parent().removeClass("hidden");
 					}
+					location.href = "#search-results";
 				}
 			});
 	}
@@ -200,6 +205,8 @@ $(document).ready(function() {
 	function getBeers()
 	{
 		var $this = $(this);
+		currentBrewery = $this.data("breweryId");
+		currentBeer = "";
 		var $breweryDiv = $this.parent().parent().clone();
 		$breweryDiv.find(".btn.beer-button").parent().remove();
 		$("#current-brewery").empty().append($breweryDiv);
@@ -211,22 +218,32 @@ $(document).ready(function() {
 		}).done(function(r) {
 			response = r.data;
 			console.log(r);
- 	
-			for(var i = 0; i < response.length; i++)
+
+			if(!(r === undefined))
+			{
+				$beers.empty();
+				for(var i = 0; i < response.length; i++)
+				{
+					var beerdiv = $("<div>")
+					.data(response[i])
+					.addClass("beer")
+					.append($("<h5>")
+						.addClass("beer-name")
+						.text(response[i].name.trim())
+						.click(getCurrentBeer))
+					.append($("<p>")
+						.addClass("beer-description")
+						.text(response[i].description));
+					beerdiv.appendTo($beers);
+				}
+				location.href = "#beer-list";
+			}
+			else
 			{
 				var beerdiv = $("<div>")
-				.data(response[i])
-				.addClass("beer")
-				.append($("<h5>")
-					.addClass("beer-name")
-					.text(response[i].name.trim())
-					.click(getCurrentBeer))
-				.append($("<p>")
-					.addClass("beer-description")
-					.text(response[i].description));
-				beerdiv.appendTo($beers);
+					.append($("<h5>")
+						.text("No beers were in the database for this Brewery."))
 			}
-			location.href = "#beer-list";
 		});
 	}
 
@@ -234,6 +251,41 @@ $(document).ready(function() {
 	{
 		var $this = $(this);
 		currentBeer = $this.parent().data().id;
+		//TODO: pull stats from database for this beer
+		$.ajax({
+			method: "GET",
+			url: (database.ref(currentBrewery + "/" + currentBeer).toString() + ".json")
+		}).done(function(r) {
+			console.log(r);
+			if(!(r === null))
+			{
+				var $beerTable = $beerRatings.find("table");
+				$beerTable.empty();
+				$beerTable.append($("<thead>")
+					.append($("<tr>")
+						.append($("<td>")
+							.text("Nobody has rated this beer."))));
+				$beerTable.after($("<button>")
+					.text("Rate this beer!")
+					.click(rateBeer));
+			}
+			else
+			{
+				var $beerTable = $beerRatings.find("table");
+				$beerTable.empty();
+				$beerTable.append($("<thead>")
+					.append($("<tr>")
+						.append($("<td>")
+							.text("Nobody has rated this beer."))));
+				$beerTable.after($("<button>")
+					.text("Rate this beer!")
+					.click(goToRateBeer));
+			}
+		});
+	}
+
+	function goToRateBeer()
+	{
 
 	}
 
@@ -244,23 +296,19 @@ $(document).ready(function() {
 			return ($("<button>")
 				// .text("WS")
 				.addClass("w3-button"));
+		}
+		else
+		{
+			return ($("<img>")
+				.attr("src", anObject.brewery.images.icon)
+				.attr("alt", "Brewery Logo")
+				.addClass("img-thumbnail brewery-img"));
+		}
 	}
-	else
-	{
-		return ($("<img>")
-			.attr("src", anObject.brewery.images.icon)
-			.attr("alt", "Brewery Logo")
-			.addClass("img-thumbnail brewery-img"));
-	}
-}
-
-
 
 	//TODO: add D3js bar graph for rating distribution
 	//TODO: finish search results displays
 	//TODO: pass .data() of beer name to rating submission form.
-
-	//TODO: pass brewery and beer IDs.
 });
 
 
