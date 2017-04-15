@@ -294,7 +294,7 @@ $(document).ready(function() {
 		if(anObject.brewery.images === undefined)
 		{
 			return ($("<button>")
-				.text("WS")
+				// .text("WS")
 				.addClass("w3-button"));
 		}
 		else
@@ -306,11 +306,10 @@ $(document).ready(function() {
 		}
 	}
 
-
-	console.log(database.ref("gribble/BeerID").toString());
 	//TODO: add D3js bar graph for rating distribution
 	//TODO: finish search results displays
 	//TODO: pass .data() of beer name to rating submission form.
-
-	//TODO: pass brewery and beer IDs.
 });
+
+
+
