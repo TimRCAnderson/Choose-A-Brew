@@ -18,15 +18,6 @@ h5 {
   color: #f4511e;
 }
 
-#search-button {
-  margin-top: 10px;
-  border-radius: 5px;
-}
-
-#search-box {
-  height: 200px;
-}
-
 .navbar {
   font-family: Montserrat, sans-serif;
   margin-bottom: 0;
@@ -50,6 +41,19 @@ h5 {
   border-color: transparent;
 }
 
+#location-search, #brewery-search, #beer-search {
+  background-image: url("../images/head.jpg");
+}
+
+#search-button {
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+#search-box {
+  height: 200px;
+}
+
 .w3-third {
   display: inline-flex;
   float: none;
@@ -70,7 +74,7 @@ h5 {
 }
 
 .brewery .w3-button {
-  background: white;
+  background-image: url("../images/mugs.jpg");
   height: 55px;
   width: 55px;
   color: black;
@@ -114,31 +118,49 @@ h5 {
   padding-bottom: 20px;
 }
 
-#beer-thumbs {
-  margin: auto;
-}
-
 #the-map{
   height: 600px;
 }
 
-#location-search, #brewery-search, #beer-search {
-  background-image: url("../images/head.jpg");
+#beer-thumbs {
+  min-height: 100px;
+  margin: auto;
+}
 
+#user-comment {
+  width: 80%;
+  max-width: 700px;
+  margin: auto;
+}
+
+#add-user{
+  margin: 0, auto;
+  background-color: #f4511e;
+  border: none;
+  border-radius: 5px;
+}
+
+#submit-div {
+  margin: 0, auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#icon-beer {
+  margin: auto;
 }
 
 .form-position {
   padding-top: 50px;
-  min-height: 550px;
+  min-height: 100px;
   color:#ddd;
   background-color:#282E34;
-  /*text-align:center;*/
   opacity: 0.85;
 }
 
 #section-lead {
   text-align: center;
-  margin-left: 30px;
+  /*margin-left: 30px;*/
   font-size: 24px;
 }
 
