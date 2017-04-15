@@ -70,8 +70,8 @@ $.fn.rating = function (method, options) {
             paint($(this).parent());
             settings.onClick.call($(this).parent());
             console.log (userRating);
-          
-         });
+
+        });
 
         function paint(div) {
             userRating = parseInt(div.attr('data-rating'));
@@ -90,20 +90,21 @@ $.fn.rating = function (method, options) {
         }
     };
 
-$("#add-user").on("click", function(event) {
+    $("#add-user").on("click", function(event) {
         event.preventDefault();
         ratePush = userRating;
         userComment = $("#user-comment").val().trim();
-       
 
 
-database.ref().child("BrewID").child("BeerID").push({
-    userRating: ratePush,
-    rateComment: userComment
+        if(currentBrewery != "" && currentBrewery != undefined &&currentBeer != "" && currentBeer != undefined)
+        {
+            database.ref().child(currentBrewery).child(currentBeer).push({
+                userRating: ratePush,
+                rateComment: userComment
+            });
+        }
 
-});
-
-});
+    });
 
 
 
@@ -142,7 +143,7 @@ database.ref().child("BrewID").child("BeerID").push({
 //                nextTrainFormatted: nextTrainFormatted,
 //                minutesTillTrain: minutesTillTrain
 //           });
-         
+
 //           $('#name-input').val('');
 //           $('#destination-input').val('');
 //           $('#first-train-time-input').val('');
@@ -150,7 +151,7 @@ database.ref().child("BrewID").child("BeerID").push({
 
 //           return false;
 //      });
-          
+
 //           dataRef.on("child_added", function(childSnapshot) {
 
 
