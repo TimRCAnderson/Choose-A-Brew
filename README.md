@@ -1,6 +1,7 @@
 # Choose-A-Brew
 
 Project: 01-Front-End-Project-With-APIs
+Group: Tim Anderson, Lisa Magee, Ernst Davis
 
 
 for prototyping: 
