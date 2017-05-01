@@ -1,7 +1,12 @@
 # Choose-A-Brew
 
+Project: 01-Front-End-Project-With-APIs
+
+
 for prototyping: 
+
 	* layout
+	
 	* User Interface:
 		* search bar with city, state, zip code, which ties in to the brewDB API search functionality.
 			* Search returns breweries
