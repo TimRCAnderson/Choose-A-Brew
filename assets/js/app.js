@@ -2,7 +2,8 @@ var currentBeer;
 var currentBrewery;
 
 $(document).ready(function() {
-	var brewDBURL = "https://fathomless-plains-61908.herokuapp.com/beer/"
+// 	var brewDBURL = "https://fathomless-plains-61908.herokuapp.com/beer/"
+	var brewDBURL = "http://api.brewerydb.com/v2/"
 	var brewDBKey = "key=f763de9765b39a76ecb1f8861767928a"
 	var $resultsDiv = $("<div>");
 	var $sByLoc = $("#form-location");
