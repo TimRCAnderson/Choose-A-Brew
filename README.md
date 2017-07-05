@@ -13,3 +13,6 @@ for prototyping:
 		* Clicking on a brewery beer link expands a segment that lists their beers.
 			* clicking on a beer will load the beers ratings
 		* User star ratings by beer
+		
+		
+https://lvmagee.github.io/Choose-A-Brew/
