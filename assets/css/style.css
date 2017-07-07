@@ -110,7 +110,7 @@ h5 {
 
 #beers-here {
   text-align: left;
-  min-height: 400px;
+/*   min-height: 400px; */
   min-width: 600px;
   max-width: 90%;
   margin-left: 5%;
