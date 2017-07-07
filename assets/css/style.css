@@ -92,9 +92,9 @@ h5 {
   margin-left: 20px;
 }
 
-h5.beer-name{
+/*h5.beer-name{
   cursor: hand;
-}
+}*/
 
 .brewery-img {
   max-width: 60%;
@@ -110,11 +110,15 @@ h5.beer-name{
 
 #beers-here {
   text-align: left;
-  /*min-height: 400px;*/
+  min-height: 400px;
   min-width: 600px;
   max-width: 90%;
+<<<<<<< HEAD
+margin: 5%;
+=======
   margin-left: 5%;
   margin-right: 5%;
+>>>>>>> master
 }
 
 .row {
